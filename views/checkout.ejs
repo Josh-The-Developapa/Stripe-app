@@ -9,9 +9,30 @@
     <title>Buy cool new product</title>
   </head>
   <body>
-    <h1>Click below to make payment</h1>
+    <h1>Fill the form and click below to make payment</h1>
     <form action="/create-checkout-session" method="POST">
-      <button type="submit" class="btn btn-outline-primary">Checkout</button>
+      <div class="mb-3">
+        <label class="form-label">Name of product</label>
+        <input type="text" class="form-control" name="name" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Currency</label>
+        <input
+          type="text"
+          class="form-control"
+          name="currency"
+          placeholder="For example 'usd' "
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Amount</label>
+        <input type="number" class="form-control" name="amount" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Quantity</label>
+        <input type="number" class="form-control" name="quantity" />
+      </div>
+      <button type="submit" class="btn btn-outline-success">Checkout</button>
     </form>
   </body>
 </html>

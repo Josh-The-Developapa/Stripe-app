@@ -15,11 +15,19 @@ router.get('/checkout', async (req, res, next) => {
 })
 
 router.post('/create-checkout-session', async (req, res, next) => {
-    session = await stripe.checkout.sessions.create({
+    const { currency, name, amount, quantity } = req.body;
+
+    const session = await stripe.checkout.sessions.create({
         line_items: [
             {
-                price: 'price_1Ks0NnFoXys89NW0R4T6C74H',
-                quantity: 1,
+                price_data: {
+                    currency: currency,
+                    product_data: {
+                        name: name,
+                    },
+                    unit_amount: `${ amount }00`,
+                },
+                quantity: quantity,
             },
         ],
         mode: 'payment',
