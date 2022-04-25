@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const stripe = require('stripe')('sk_test_51JJGl0FoXys89NW04r4hH2267S50MXfFvo5fjbpt9r9fLjbF8EhSIQ4zotZimfKiDv3Wch2ckzz5Fr0kKZqHLFq800QGBKCc1k');
-
+require('dotenv').config();
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 router.get('/', async (req, res, next) => {
     res.redirect('/checkout')
